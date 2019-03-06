@@ -17,11 +17,13 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "generate-client": "ts-node src/generate-spec && openapi-generator generate -i spec.json -g typescript-angular -o ../frontend/src/app/client --additional-properties=\"ngVersion=7.2.0\""
   },
   "dependencies": {
     "@nestjs/common": "^5.4.0",
     "@nestjs/core": "^5.4.0",
+    "@nestjs/swagger": "^2.5.1",
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.2",
     "rxjs": "^6.2.2",
@@ -41,7 +43,8 @@
     "ts-loader": "^4.4.2",
     "ts-node": "^7.0.1",
     "tsconfig-paths": "^3.5.0",
-    "tslint": "5.11.0"
+    "tslint": "5.11.0",
+    "@openapitools/openapi-generator-cli": "0.0.8-4.0.0-beta2"
   },
   "jest": {
     "moduleFileExtensions": [
