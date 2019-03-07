@@ -47,4 +47,4 @@ $ npm run generate-client
 
 ### blog
 
-[Japanese]()
+[Japanese](https://qiita.com/chibato/items/35785ee84033fb1d91fb)
