@@ -1,7 +1,7 @@
 
 # NestJS -> OpneAPI => Angular Starter
 
-[![Build Status](https://travis-ci.org/chibat/spring-openapi-angular-starter.svg?branch=master)](https://travis-ci.org/chibat/spring-openapi-angular-starter)
+[![Build Status](https://travis-ci.org/chibat/nestjs-openapi-angular-starter.svg?branch=master)](https://travis-ci.org/chibat/nestjs-openapi-angular-starter)
 
 ## Feature
 
@@ -9,7 +9,7 @@
 
 ## Architecture
 
-<img src="https://docs.google.com/drawings/d/e/2PACX-1vSxXwLG6sgD4_NhSHS4cT3R2geZeDDz2lMDlSYnecIG77jE-Eu9KRdFYrLeMLV6LyBY6Ftft09APNHQ/pub?w=632&h=367">
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vTNkQFzfRmMoJqEkbVtJXWgwMNgJXJQRiQEjmNajjpYUQboE3syxos7EbMsrpBL8j9WFmyjJCto2sD5/pub?w=632&h=367">
 
 ## Prerequisites
 
