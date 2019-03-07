@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open --proxy-config proxy.conf.json",
-    "build": "ng build --aot --prod --output-path ../backend/build/resources/main/static",
+    "build": "ng build --aot --prod --output-path ../backend/public",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
