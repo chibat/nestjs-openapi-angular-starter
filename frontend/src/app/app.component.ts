@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CalculatorService } from './client/api/calculator.service';
+import { CalculateService } from './client/api/calculate.service';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +12,12 @@ export class AppComponent {
   arg2: number;
   result: number;
 
-  constructor(private  calculatorService: CalculatorService) {
+  constructor(private calculateService: CalculateService) {
   }
 
   add() {
     if (this.arg1 || this.arg2) {
-      this.calculatorService
+      this.calculateService
         .add({arg1: this.arg1, arg2: this.arg2})
         .subscribe(data => this.result = data.result);
     }

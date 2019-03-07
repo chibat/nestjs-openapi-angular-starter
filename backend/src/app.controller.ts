@@ -1,13 +1,15 @@
-import { Controller, Post, Body, HttpStatus, HttpCode } from '@nestjs/common';
+import { Controller, Post, Body, HttpCode } from '@nestjs/common';
 import { RequestDto } from './request.dto';
 import { ResponseDto } from './response.dto';
-import { ApiResponse } from '@nestjs/swagger';
+import { ApiResponse, ApiOperation, ApiUseTags } from '@nestjs/swagger';
 
 @Controller('rest/api')
+@ApiUseTags('calculate')
 export class AppController {
 
   @Post('add')
   @HttpCode(200)
+  @ApiOperation({title: "", operationId: "add"})
   @ApiResponse({
     status: 200,
     type: ResponseDto

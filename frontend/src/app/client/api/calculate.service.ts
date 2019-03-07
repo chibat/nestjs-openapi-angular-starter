@@ -28,7 +28,7 @@ import { Configuration }                                     from '../configurat
 @Injectable({
   providedIn: 'root'
 })
-export class DefaultService {
+export class CalculateService {
 
     protected basePath = 'http://localhost';
     public defaultHeaders = new HttpHeaders();
@@ -67,12 +67,12 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public restApiAddPost(requestDto: RequestDto, observe?: 'body', reportProgress?: boolean): Observable<ResponseDto>;
-    public restApiAddPost(requestDto: RequestDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseDto>>;
-    public restApiAddPost(requestDto: RequestDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseDto>>;
-    public restApiAddPost(requestDto: RequestDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public add(requestDto: RequestDto, observe?: 'body', reportProgress?: boolean): Observable<ResponseDto>;
+    public add(requestDto: RequestDto, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseDto>>;
+    public add(requestDto: RequestDto, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseDto>>;
+    public add(requestDto: RequestDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (requestDto === null || requestDto === undefined) {
-            throw new Error('Required parameter requestDto was null or undefined when calling restApiAddPost.');
+            throw new Error('Required parameter requestDto was null or undefined when calling add.');
         }
 
         let headers = this.defaultHeaders;
