@@ -11,6 +11,7 @@ branches:
 
 script:
   - cd backend
+  - npm install
   - npm run generate-client
   - cd ../frontend
   - npm run build
