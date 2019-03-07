@@ -18,7 +18,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "generate-client": "ts-node src/generate-spec && openapi-generator generate -i spec.json -g typescript-angular -o ../frontend/src/app/client --additional-properties=\"ngVersion=7.2.0\""
+    "generate-client": "ts-node test/pregenerate-client && openapi-generator generate -i spec.json -g typescript-angular -o ../frontend/src/app/client --additional-properties=\"ngVersion=7.2.0\""
   },
   "dependencies": {
     "@nestjs/common": "^5.4.0",

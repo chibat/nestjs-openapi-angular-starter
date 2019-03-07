@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import del from 'del';
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-import { AppModule } from './app.module';
+import { AppModule } from '../src/app.module';
 
 NestFactory.create(AppModule).then(app => {
   const options = new DocumentBuilder().build();
