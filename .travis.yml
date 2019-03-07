@@ -10,10 +10,12 @@ branches:
     - master
 
 script:
+  - set -e
   - cd backend
   - npm install
   - npm run generate-client
   - cd ../frontend
+  - npm install
   - npm run build
 
 cache:
