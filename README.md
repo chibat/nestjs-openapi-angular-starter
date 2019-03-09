@@ -38,13 +38,105 @@ $ npm start
 Open following URL by Web browser.  
 http://localhost:4200/
 
-## Generate the client code
+## Development flow
+
+### 1. Create a Web backend code
+
+#### app.controller.ts
+
+```typescript
+import { Controller, Post, Body, HttpCode } from '@nestjs/common';
+import { RequestDto } from './request.dto';
+import { ResponseDto } from './response.dto';
+import { ApiResponse, ApiOperation, ApiUseTags } from '@nestjs/swagger';
+
+@Controller('rest/api')
+@ApiUseTags('calculate')
+export class AppController {
+
+  @Post('add')
+  @HttpCode(200)
+  @ApiOperation({title: "", operationId: "add"})
+  @ApiResponse({
+    status: 200,
+    type: ResponseDto
+  })
+  add(@Body() request: RequestDto): ResponseDto {
+    return {result: request.arg1 + request.arg2};
+  }
+}
+```
+
+#### request.dto.ts
+
+```typescript
+import { ApiModelProperty } from "@nestjs/swagger";
+
+export class RequestDto {
+
+  @ApiModelProperty()
+  readonly arg1: number;
+
+  @ApiModelProperty()
+  readonly arg2: number;
+}
+```
+
+#### response.dto.ts
+
+```typescript
+import { ApiModelProperty } from "@nestjs/swagger";
+
+export class ResponseDto {
+
+  @ApiModelProperty()
+  result: number;
+}
+```
+
+### 2. Generate the client code
 
 ```
 $ cd backend
 $ npm run generate-client
 ```
 
-### blog
+### 3. Create a Web frontend code using the Generated files
+
+#### app.component.ts
+
+`CalcuateService` is the Generate class.
+
+```typescript
+import { Component } from '@angular/core';
+import { CalculateService } from './client/api/calculate.service';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+  arg1: number;
+  arg2: number;
+  result: number;
+
+  constructor(private calculateService: CalculateService) {
+  }
+
+  add() {
+    if (this.arg1 || this.arg2) {
+      this.calculateService
+        .add({arg1: this.arg1, arg2: this.arg2})
+        .subscribe(data => this.result = data.result);
+    }
+  }
+}
+```
+
+
+
+## blog
 
 [Japanese](https://qiita.com/chibato/items/35785ee84033fb1d91fb)
