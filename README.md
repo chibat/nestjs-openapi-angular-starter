@@ -48,15 +48,15 @@ http://localhost:4200/
 import { Controller, Post, Body, HttpCode } from '@nestjs/common';
 import { RequestDto } from './request.dto';
 import { ResponseDto } from './response.dto';
-import { ApiResponse, ApiOperation, ApiUseTags } from '@nestjs/swagger';
+import { ApiResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 
 @Controller('rest/api')
-@ApiUseTags('calculate')
+@ApiTags('calculate')
 export class AppController {
 
   @Post('add')
   @HttpCode(200)
-  @ApiOperation({title: "", operationId: "add"})
+  @ApiOperation({operationId: "add"})
   @ApiResponse({
     status: 200,
     type: ResponseDto
@@ -70,14 +70,14 @@ export class AppController {
 #### request.dto.ts
 
 ```typescript
-import { ApiModelProperty } from "@nestjs/swagger";
+import { ApiProperty } from "@nestjs/swagger";
 
 export class RequestDto {
 
-  @ApiModelProperty()
+  @ApiProperty()
   readonly arg1: number;
 
-  @ApiModelProperty()
+  @ApiProperty()
   readonly arg2: number;
 }
 ```
@@ -85,11 +85,11 @@ export class RequestDto {
 #### response.dto.ts
 
 ```typescript
-import { ApiModelProperty } from "@nestjs/swagger";
+import { ApiProperty } from "@nestjs/swagger";
 
 export class ResponseDto {
 
-  @ApiModelProperty()
+  @ApiProperty()
   result: number;
 }
 ```
