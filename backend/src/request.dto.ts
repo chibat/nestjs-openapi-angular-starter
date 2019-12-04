@@ -1,10 +1,10 @@
-import { ApiModelProperty } from "@nestjs/swagger";
+import { ApiProperty } from "@nestjs/swagger";
 
 export class RequestDto {
 
-  @ApiModelProperty()
+  @ApiProperty()
   readonly arg1: number;
 
-  @ApiModelProperty()
+  @ApiProperty()
   readonly arg2: number;
 }
